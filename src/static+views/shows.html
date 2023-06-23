@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ditto Home Page</title>
+<style>
+		html, body {
+        height: 100%;  /*takes up the full height of the viewport*/
+        margin: 0;
+        padding: 0;
+      }
+
+#news {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        color: #ffffff;
+        background-color: #831010; /*  //culoare header cu newsletter*/
+        margin: 0;
+        padding: 0;
+
+      }
+          
+      h2 {
+        background-color: #831010;
+        font-size: 16px; /*  dimensiune text */
+        display: flex;
+        margin: 2px; /*ca sa ramana subtire */
+        font-weight: 10;  /*ca sa fie subtire textul */
+        color: white;  /*  //culoare text */
+        text-shadow: #cccccc;
+      }
+      
+      #content {
+        height: 100%;  /*takes up the full height of the viewport*/
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column; /* "column" to arrange the child elements vertically. */
+        height: 100%;
+        color: black;
+        background-color: #F0F0F0;
+        flex: 1 0 auto; /*set to '1 0 auto' to allow it to grow vertically to fill the remaining space.  */
+
+      }
+
+      div p {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+nav {
+   overflow: hidden;
+   background-color: #ffffff;
+   padding: 14px;
+}
+.links {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: bold;
+   float: left;
+   color:rgb(0, 0, 0);
+   text-align: center;
+   padding: 12px;
+   text-decoration: none;
+   font-size: 18px;
+   line-height: 25px;
+   border-radius: 4px;
+}
+nav .logo {
+   font-size: 25px;
+   font-weight: bold;
+   /* display: block; */
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        display: flex;
+        flex-direction: column; /* "column" to arrange the child elements vertically. */
+        height: 100%;
+        color: black;
+         background-color: #ffffff;
+   
+}
+nav .links:hover {
+   background-color: #F0F0F0;
+   color: rgb(42, 10, 94);
+}
+/* nav .selected {
+   background-color: #F0F0F0;
+   color: rgb(0, 0, 0);
+} */
+.rightSection {
+   float: right;
+}
+
+footer {
+        text-align: center;
+        padding: 10px;
+        color: rgb(0, 0, 0);
+        background-color: #ffffff; /*  culoare footer */
+      }
+
+.container {
+			display: flex;
+			height: 100vh;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+		}
+		
+.half {
+			flex: 1;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+		}
+		
+.left {
+      background-image: url("unu.jpg");
+		}
+		
+.right {
+     background-image: url("doi.jpg");
+		}
+
+.text {
+			position: absolute;
+			color: white;
+			font-size: 3rem;
+			font-weight: bold;
+			text-align: center;
+			z-index: 1;
+		}
+
+@media screen and (max-width: 870px) {
+   nav .links {
+      float: none;
+      display: block;
+      text-align: left;
+      
+   }
+   nav .links.logo {
+
+   font-size: 25px;
+   font-weight: bold;
+   /* display: block; */
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+        margin-bottom: 3%;
+        padding: 0;
+        width: 200px;
+        display: flex;
+        flex-direction: column; /* "column" to arrange the child elements vertically. */
+        height: 100%;
+        color: black;
+         background-color: #ffffff;   
+}
+
+   .rightSection {
+      float: none;
+   }
+}
+</style>
+</head>
+
+<body>
+
+  <div id="news">
+    <h2>
+Subscribe to our newsletter!
+      </h2>
+    </div>
+
+<nav>
+<a class="links logo"  href="ditto.html">
+  <img src="Ditto_music_logo.svg.png">
+</a>
+<div class="rightSection"> 
+  <a class="links" href="movies.html">Shows</a>
+  <a class="links" href="statistics.html">Statistics</a>
+  <a class="links" href="shows.html">News</a>
+  <a class="links" href="about.html">About</a>
+  <a id="log" class="links" href="login.html" >Login</a>
+</nav>
+
+<script src="checkSession.js"></script>
+
+
+<div class="container">
+  <div class="half left" onclick="window.location.href='movies.html';">
+    <div class="text">Movies</div>
+  </div>
+  <div class="half right" onclick="window.location.href='tvshows.html';">
+    <div class="text">TV Shows</div>
+  </div>
+</div>
+
+<div>
+<footer>
+  Ditto - MoX
+</footer>
+</div>
+
+</body>
+</html>

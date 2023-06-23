@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ditto Home Page</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      /*takes up the full height of the viewport*/
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      background-color: #831010;
+      display: flex;
+      margin: 2px;
+      /*ca sa ramana subtire */
+    }
+
+    #news {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #ffffff;
+      background-color: #831010;
+      /*  //culoare header cu newsletter*/
+      margin: 0;
+      padding: 0;
+    }
+
+    #content,
+    #movie-container {
+      background-color: #F0F0F0;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+    }
+
+    #pagination-container {
+      background-color: #F0F0F0;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      align-items: center;
+      text-align: center;
+    }
+
+
+    nav {
+      overflow: hidden;
+      background-color: #ffffff;
+      padding: 14px;
+    }
+
+    .links {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+      float: left;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+    }
+
+    nav .logo {
+      font-size: 25px;
+      font-weight: bold;
+      /* display: block; */
+      max-width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      /* "column" to arrange the child elements vertically. */
+      height: 100%;
+      color: black;
+      background-color: #ffffff;
+
+    }
+
+    nav .links:hover {
+      background-color: #F0F0F0;
+      color: rgb(42, 10, 94);
+    }
+
+    /* nav .selected {
+   background-color: #F0F0F0;
+   color: rgb(0, 0, 0);
+} */
+
+    .rightSection {
+      float: right;
+    }
+
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      color: rgb(255, 255, 255);
+      background-color: #ffffff;
+      /*  culoare footer */
+    }
+
+    .sort-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #F0F0F0;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+    }
+
+    .sort-bar select {
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .sort-bar input[type=search] {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .sort-bar #sort-container {
+      align-items: flex-start;
+    }
+
+
+    .filters-box {
+      background-color: #f2f2f2;
+      color: black;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      float: left;
+      width: 20%;
+    }
+
+    .filters-box h3 {
+      margin-bottom: 10px;
+      margin-top: 0%;
+    }
+
+    .category {
+      margin-bottom: 10px;
+    }
+
+    .category label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .category ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    .category li {
+      margin-bottom: 5px;
+    }
+
+    .category input[type=checkbox] {
+      margin-right: 5px;
+    }
+
+
+
+
+    @media screen and (max-width: 870px) {
+      nav .links {
+        float: none;
+        display: block;
+        text-align: left;
+
+      }
+
+      nav .links.logo {
+
+        font-size: 25px;
+        font-weight: bold;
+        /* display: block; */
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+        margin-bottom: 3%;
+        padding: 0;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        /* "column" to arrange the child elements vertically. */
+        height: 100%;
+        color: black;
+        background-color: #ffffff;
+      }
+
+      .rightSection {
+        float: none;
+      }
+
+      .sort-bar {
+        flex-direction: row-reverse;
+      }
+
+      .sort-bar select {
+        margin-left: 10px;
+      }
+
+      .filters-box {
+        flex-basis: 20%;
+        margin-right: 10px;
+        float: left;
+        clear: none;
+      }
+
+
+    }
+
+    a {
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <nav>
+    <a class="links logo" href="ditto.html">
+      <img src="Ditto_music_logo.svg.png">
+    </a>
+    <div class="rightSection">
+      <a class="links" href="movies.html">Shows</a>
+      <a class="links" href="statistics.html">Statistics</a>
+      <a class="links" href="news.html">News</a>
+      <a class="links" href="about.html">About</a>
+      <a id="log" class="links" href="login.html" >Login</a>
+    </nav>
+
+    <script src="checkSession.js"></script>
+
+
+  <div id="news">
+    <h2>
+    </h2>
+  </div>
+
+  <div class="sort-bar">
+
+    <div id="sort-container">
+      <select id="sort-by">
+        <option value="">Sort by id</option>
+        <option value="name">Sort by name</option>
+        <option value="year">Sort by release Date</option>
+      </select>
+
+      <select id="sort-dir">
+        <option value="asc">Sort ASC</option>
+        <option value="desc">Sort DESC</option>
+      </select>
+    </div>
+
+
+    <div id="filter-container">
+      <label for="type-filter">Type</label>
+      <select id="type-filter">
+        <option value="">All</option>
+      </select>
+
+      <label for="genre-filter">Genre</label>
+      <select id="genre-filter">
+        <option value="">All</option>
+      </select>
+
+      <label for="rating-filter">Rating</label>
+      <select id="rating-filter">
+        <option value="">All</option>
+      </select>
+
+    </div>
+
+    <input type="search" placeholder="Search...">
+  </div>
+
+
+
+
+
+
+  <div id="content">
+
+    <div id="movie-container"></div>
+
+  </div>
+
+  <div id="pagination-container"></div>
+
+
+  <script>
+
+    //filme
+    var currentPage = 1;
+    var itemsPerPage = 20;
+
+    // Function to generate the pagination links
+    function generatePagination(totalPages) {
+      var paginationContainer = document.getElementById('pagination-container');
+      paginationContainer.innerHTML = '';
+
+      // Create link for first page
+      var firstLink = document.createElement('a');
+      firstLink.href = '#';
+      firstLink.textContent = 'First ';
+      firstLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        filterMovies(1);
+      });
+      paginationContainer.appendChild(firstLink);
+
+      // Create link for previous page
+      var prevLink = document.createElement('a');
+      prevLink.href = '#';
+      prevLink.textContent = 'Previous ';
+      prevLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (currentPage > 1) {
+          filterMovies(currentPage - 1);
+          currentPage = currentPage - 1;
+        }
+      });
+      paginationContainer.appendChild(prevLink);
+
+      // Create link for current page
+      var currentLink = document.createElement('a');
+      currentLink.href = '#';
+      currentLink.textContent = currentPage;
+      currentLink.classList.add('active');
+      paginationContainer.appendChild(currentLink);
+
+      // Create link for next page
+      var nextLink = document.createElement('a');
+      nextLink.href = '#';
+      nextLink.textContent = 'Next ';
+      nextLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (currentPage < totalPages) {
+          filterMovies(currentPage + 1);
+          currentPage = currentPage + 1;
+        }
+      });
+      paginationContainer.appendChild(nextLink);
+
+      // Create link for last page
+      var lastLink = document.createElement('a');
+      lastLink.href = '#';
+      lastLink.textContent = 'Last ';
+      lastLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        filterMovies(totalPages);
+      });
+      paginationContainer.appendChild(lastLink);
+    }
+
+
+
+    function generateMovieContent(movieData) {
+      const movieContainer = document.getElementById('movie-container');
+      console.log(movieData);
+
+      // Clear any existing content inside the movie container
+      movieContainer.innerHTML = '';
+
+      // Loop through the movie data and create HTML elements dynamically
+      movieData.data.forEach(movie => {
+        const movieDiv = document.createElement('div');
+        movieDiv.classList.add('movie');
+
+        const titleHeading = document.createElement('a');
+        titleHeading.textContent = movie.title;
+        titleHeading.href = 'moviePage.html?id=' + movie.id;
+
+        const descriptionParagraph = document.createElement('p');
+        descriptionParagraph.textContent = movie.description;
+
+        // Append the elements to the movie container
+        movieDiv.appendChild(titleHeading);
+        movieDiv.appendChild(descriptionParagraph);
+        movieContainer.appendChild(movieDiv);
+      });
+    }
+
+
+
+
+    fetch('http://localhost/api/shows')
+      .then(response => response.json())
+      .then(data => {
+        // Call a function to generate HTML content dynamically using the fetched data
+        generateMovieContent(data);
+
+        generatePagination(data.last_page);
+
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+
+
+    //filtre
+
+    fetch('http://localhost/api/filters/shows')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        // Call functions to generate filters and display movies
+        generateFilters(data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+
+
+    function applyFilter(page = 1, type = '', genre = '', rating = '', sort_by = '', sort_dir = '') {
+      // Create the filter object
+      const filter = {
+        page,
+        type,
+        genre,
+        rating,
+        sort_by,
+        sort_dir
+      };
+
+      callEndpoint(filter);
+    }
+
+
+
+
+
+
+
+    function callEndpoint(filter) {
+      // Convert the filter object to URL parameters
+      const urlParams = new URLSearchParams(filter).toString();
+
+      // Append the URL parameters to the API endpoint URL
+      const apiUrl = `http://localhost/api/shows?${urlParams}`;
+
+      console.log(apiUrl);
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          // Call a function to generate HTML content dynamically using the fetched data
+          generateMovieContent(data);
+          generatePagination(data.last_page);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+
+    }
+
+
+
+    function generateFilters(filtersData) {
+      const typeFilter = document.getElementById('type-filter');
+      const genreFilter = document.getElementById('genre-filter');
+      const ratingFilter = document.getElementById('rating-filter');
+      const sortBy = document.getElementById('sort-by');
+      const sortDir = document.getElementById('sort-dir');
+
+
+      // Extract unique genres and years from the movie data
+      const type = [...new Set(filtersData.data.types)];
+      const genres = [...new Set(filtersData.data.genres)];
+      const rating = [...new Set(filtersData.data.ratings)];
+
+      // Create option elements for each genre and year
+      type.forEach(type => {
+        const option = document.createElement('option');
+        option.type = type;
+        option.textContent = type;
+        typeFilter.appendChild(option);
+      });
+
+
+      genres.forEach(genre => {
+        const option = document.createElement('option');
+        option.value = genre;
+        option.textContent = genre;
+        genreFilter.appendChild(option);
+      });
+
+      rating.forEach(rating => {
+        const option = document.createElement('option');
+        option.value = rating;
+        option.textContent = rating;
+        ratingFilter.appendChild(option);
+      });
+
+      // Add event listeners to the filters to trigger filtering
+      typeFilter.addEventListener('change', filterMovies);
+      genreFilter.addEventListener('change', filterMovies);
+      ratingFilter.addEventListener('change', filterMovies);
+      sortBy.addEventListener('change', filterMovies);
+      sortDir.addEventListener('change', filterMovies);
+    }
+
+
+    function filterMovies() {
+
+      const typeFilter = document.getElementById('type-filter');
+      const genreFilter = document.getElementById('genre-filter');
+      const ratingFilter = document.getElementById('rating-filter');
+      const sortBy = document.getElementById('sort-by');
+      const sortDir = document.getElementById('sort-dir');
+
+      const selectedType = typeFilter.value;
+      const selectedGenre = genreFilter.value;
+      const selectedRating = ratingFilter.value;
+
+      applyFilter(currentPage, selectedType, selectedGenre, selectedRating, sortBy.value, sortDir.value);
+    }
+
+
+  </script>
+
+</body>
+
+</html>
