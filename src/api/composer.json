@@ -1,0 +1,11 @@
+{
+    "name": "tw/api",
+    "require": {
+        "guzzlehttp/guzzle": "^7.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tw\\Api\\": "src/"
+        }
+    }
+}
